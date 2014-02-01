@@ -1,0 +1,33 @@
+body{
+	background-image: url('/img/background-pattern.jpg');
+	background-size: 35%;
+}
+
+a{
+	color: #779;
+}
+
+.index-panel{
+	margin-top: 5%;
+}
+
+.index-panel .panel{
+	box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+	border-radius: 0;
+	border-color: #333;
+}
+
+.panel-default > .panel-heading{
+	color: #EEE;
+	background-color: #333;
+	border-color: #333;
+	border-radius: 0;
+}
+
+#post-picture{
+	width: 100%;
+}
+
+li {
+	list-style: none;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= post.title %></title>
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/css/base.css">
+		<script type="text/javascript" src="/js/bootstrap.js"></script>
+	</head>
+	<body>
+		<div class="row index-panel">
+			<div class="col-sm-6 col-sm-offset-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<%= post.title %>
+					</div>
+					<img id="post-picture" src="<%= post.picture %>"></img>
+					<div class="panel-body">
+						<div class="post-container">
+							<%= post.body %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
