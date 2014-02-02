@@ -1,21 +1,21 @@
-var dB = require('mongodb').Db;
-var Server = require('mongodb').Server;
-var dPort = 27017;
-var dHost = 'localhost';
-var dName = 'b';
+var mongoose = require('mongoose');
 
-var BLOG = {}
+mongoose.connect('mongodb://localhost/b');
 
-BLOG.db = new dB(dName, new Server(dHost, dPort, {auto_reconnect: true}, {}));
+var db = mongoose.createConnection('localhost', 'b');
 
-BLOG.db.open(function(err, data){
-	if (err){
-		console.log(err);
-	}else{
-		console.log('Conectado a ' + dName + ', puerto ' + dPort);
-	}
+db.on('error', console.error.bind(console, 'connection error: '));
+
+db.once('open', function(){
+	console.log('Database connected');
 });
 
-BLOG.posts = BLOG.db.collection('posts');
+var postSchema = mongoose.Schema({
+	title: String,
+	picture: String,
+	body: String
+});
 
-module.exports = BLOG;
+var Post = mongoose.model('Post', postSchema);
+
+module.exports = Post;

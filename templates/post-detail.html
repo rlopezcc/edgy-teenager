@@ -7,11 +7,15 @@
 		<script type="text/javascript" src="/js/bootstrap.js"></script>
 	</head>
 	<body>
-		<div class="row index-panel">
-			<div class="col-sm-6 col-sm-offset-3">
+		<div class="row">
+			<div class="blog-title col-sm-3">
+				<h1>Edgy Teenager</h1>
+				<h5>Simple blog.</h5>
+			</div>
+			<div class="index-panel col-sm-6">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<%= post.title %>
+						<strong><%= post.title %></strong>
 					</div>
 					<img id="post-picture" src="<%= post.picture %>"></img>
 					<div class="panel-body">
@@ -21,6 +25,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>	
 	</body>
 </html>

@@ -1,25 +1,29 @@
-var BLOG = require('./models/post');
+var posts = require('./models/post');
 
 module.exports = function(app){
+
 	app.get('/', function(req, res){
-		BLOG.posts.find().toArray(function(err, psts){
+		
+		posts.find({}, function(err, psts){
 			if (err){
 				console.log(err);
 			}else{
-				res.render('index.html', {posts: psts ? psts : ['Nothing']});
+				res.render('index.html', {posts: psts ? psts : ['Still no posts.']});
 			}
 		});
+	
 	});
-	app.get('/post/:id', function(req, res){
+
+	app.get('/posts/:id', function(req, res){
 
 		try{
-			var objectId = new require('mongodb').ObjectID(req.params.id);
+			var objectId = new require('mongoose').ObjectID(req.params.id);
 		}catch(err){
 			console.log(err);
+			// TODO: 404 code in response header.
 			res.redirect('/404');
 		}
-
-		var pst = BLOG.posts.find({_id: objectId}).next(function(err, pst){
+		var pst = posts.findOne({_id: objectId}, function(err, pst){
 			if (err){
 				console.log(err);
 			}else{

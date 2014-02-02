@@ -6,20 +6,28 @@
 		<script type="text/javascript" src="/js/bootstrap.js"></script>
 	</head>
 	<body>
-		<div class="row index-panel">
-			<div class="col-sm-6 col-sm-offset-3">
+		<div class="row">
+			
+			<div class="blog-title col-sm-3">
+				<h1>Edgy Teenager</h1>
+				<h5>Simple blog.</h5>
+			</div>
+
+			<div class="index-panel col-sm-6">
 				<div class="panel panel-default">
 					<div class="panel-heading">
+						Post index:
 					</div>
 					<table class="table">
 						<% for(var i=0; i<posts.length; i++) { %>
 							<tr>
-								<td><a href="/post/<%= posts[i]._id %>"> <%= posts[i].title %> </a></td>
+								<td><a href="/posts/<%= posts[i]._id %>"> <%= posts[i].title %> </a></td>
 							</tr>
 						<% } %>
 					</table>
 				</div>
 			</div>
-		</div>
+			
+		</div>	
 	</body>
 </html>
