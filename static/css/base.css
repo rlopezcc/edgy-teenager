@@ -1,4 +1,5 @@
 body{
+	background-color: #000;
 	background-image: url('/img/background-pattern.jpg');
 	background-size: 35%;
 	font-size: 1.2em;
@@ -6,6 +7,11 @@ body{
 
 a{
 	color: #779;
+}
+
+a:hover{
+	text-decoration: none;
+	color: #669;
 }
 
 li {
@@ -24,6 +30,7 @@ li {
 
 .blog-title h1{
 	margin-top: 0;
+	color: #EEE;
 }
 
 .index-panel .panel{
@@ -41,6 +48,7 @@ li {
 
 .panel-default > .panel-heading .glyphicon{
 	margin-left: 5px;
+	cursor: pointer;
 }
 
 #post-picture{
@@ -57,4 +65,17 @@ a.glyphicon{
 
 .panel-default > table > tbody > tr{
 	border-top: 1px solid #DDD;
+}
+
+.index-panel.dialog{
+	z-index: 999;
+	left: 50%;
+	margin-left: -15%;
+	position: absolute;
+	top: 50px;
+	width: 30%;
+}
+
+.btn{
+	margin-left: 5px;
 }

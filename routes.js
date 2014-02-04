@@ -47,4 +47,17 @@ module.exports = function(app){
 			res.redirect('/404');
 		}
 	});
+
+	app.get('/posts/:id/delete', function(req, res){
+		var objectId = new require('mongoose').Types.ObjectId(req.params.id);
+		posts.collection.remove({_id: objectId}, function(err, data){
+			if (err){
+				console.log(err);
+			}
+			else{
+				return(data);
+			}
+		});
+		res.redirect('/');
+	});
 }

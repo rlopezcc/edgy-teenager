@@ -1,43 +1,30 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>New post</title>
-		<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="/css/base.css">
-		<script type="text/javascript" src="/js/bootstrap.js"></script>
-	</head>
-	<body>
-		<div class="row">
-			<div class="blog-title col-sm-3">
-				<h1>Edgy Teenager</h1>
-				<h5>Simple blog.</h5>
+<%= include base-top.html %>
+
+<div class="index-panel col-sm-6">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<strong>New post</strong>
+		</div>
+		<div class="panel-body">
+			<div class="post-container">
+				<form action="" method="post" enctype="multipart/form-data" id="post-form">
+					<p> 
+						<label for="title">Title </label> 
+						<input class="form-control" type="text" name="title" /> 
+					</p>
+					<p> 
+						<label for="title">Body </label> 
+						<textarea class="form-control" type="text" name="body" rows="15"></textarea>
+					</p>
+					<p>
+						<label for="picture">Picture </label> 
+						<input type="file" name="picture" /> 
+						<input type="submit" class="btn btn-default btn-sm pull-right" />
+					</p>
+				</form>
 			</div>
-			<div class="index-panel col-sm-6">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<strong>New post</strong>
-					</div>
-					<div class="panel-body">
-						<div class="post-container">
-							<form action="" method="post" enctype="multipart/form-data" id="post-form">
-								<p> 
-									<label for="title">Title </label> 
-									<input class="form-control" type="text" name="title" /> 
-								</p>
-								<p> 
-									<label for="title">Body </label> 
-									<textarea class="form-control" type="text" name="body" rows="15"></textarea>
-								</p>
-								<p>
-									<label for="picture">Picture </label> 
-									<input type="file" name="picture" /> 
-									<input type="submit" class="btn btn-default btn-sm pull-right" />
-								</p>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>	
-	</body>
-</html>
+		</div>
+	</div>
+</div>
+
+<%= include base-bottom.html %>

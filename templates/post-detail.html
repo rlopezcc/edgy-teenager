@@ -1,34 +1,21 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title><%= post.title %></title>
-		<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="/css/base.css">
-		<script type="text/javascript" src="/js/bootstrap.js"></script>
-	</head>
-	<body>
-		<div class="row">
-			<div class="blog-title col-sm-3">
-				<h1>Edgy Teenager</h1>
-				<h5>Simple blog.</h5>
+<%= include base-top.html %>
+
+<div class="index-panel col-sm-6">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<strong><%= post.title %></strong>
+			<span class="pull-right">
+				<a id="post-edit" href="/posts/<%= post._id %>/edit" class='glyphicon glyphicon-pencil'></a>
+				<a id="post-delete" data-post-id="<%= post._id %>" class='glyphicon glyphicon-remove'></a>
+			</span>
+		</div>
+		<img id="post-picture" src="<%= post.picture %>"></img>
+		<div class="panel-body">
+			<div class="post-container">
+				<%- post.body %>
 			</div>
-			<div class="index-panel col-sm-6">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<strong><%= post.title %></strong>
-						<span class="pull-right">
-							<a id="post-edit" href="/posts/<%= post._id %>/edit" class='glyphicon glyphicon-pencil'></a>
-							<a id="post-delete" href="/posts/<%= post._id %>/delete" class='glyphicon glyphicon-remove'></a>
-						</span>
-					</div>
-					<img id="post-picture" src="<%= post.picture %>"></img>
-					<div class="panel-body">
-						<div class="post-container">
-							<%- post.body %>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>	
-	</body>
-</html>
+		</div>
+	</div>
+</div>
+
+<%= include base-bottom.html %>
