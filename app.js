@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 
 app.configure(function(){
+	app.use(express.favicon(__dirname + '/static/img/favicon.png'));
 	app.set('views', __dirname + '/templates');
 	app.use(express.bodyParser({uploadDir: './static/img/post-pics'}));
 	app.use(express.static(__dirname + '/static'));
