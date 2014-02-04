@@ -16,11 +16,15 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<strong><%= post.title %></strong>
+						<span class="pull-right">
+							<a id="post-edit" href="/posts/<%= post._id %>/edit" class='glyphicon glyphicon-pencil'></a>
+							<a id="post-delete" href="/posts/<%= post._id %>/delete" class='glyphicon glyphicon-remove'></a>
+						</span>
 					</div>
 					<img id="post-picture" src="<%= post.picture %>"></img>
 					<div class="panel-body">
 						<div class="post-container">
-							<%= post.body %>
+							<%- post.body %>
 						</div>
 					</div>
 				</div>

@@ -39,6 +39,22 @@ li {
 	border-radius: 0;
 }
 
+.panel-default > .panel-heading .glyphicon{
+	margin-left: 5px;
+}
+
 #post-picture{
 	width: 100%;
+}
+
+a.glyphicon{
+	color: #DDD;
+}
+
+#post-form input[name="picture"]{
+	display: inline;
+}
+
+.panel-default > table > tbody > tr{
+	border-top: 1px solid #DDD;
 }
