@@ -1,5 +1,11 @@
 var models = require('./models');
+var validateEmail = require('./utils/string').validateEmail;
 
+if (!validateEmail(process.argv[2])){
+    console.log('Provided email is not right.');
+    console.log('Remember: \nnodejs [email] [password] [firstName] [lastName]');
+    return 1;
+}
 
 var user = new models.User({
     email: process.argv[2],
@@ -13,6 +19,7 @@ var user = new models.User({
         deletePost: true
     }
 });
+
 user.setPassword(process.argv[3])
 console.log('Created user: ');
 console.log('email:' + user.email);
