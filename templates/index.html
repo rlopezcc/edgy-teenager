@@ -1,10 +1,14 @@
-
 <%= include base-top.html %>
 
 <div class="index-panel col-sm-6">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<strong>Post index</strong><span id="post-actions" class="pull-right"><a href="/posts/new" class="glyphicon glyphicon-plus"></a></span>
+			<strong>Post index</strong>
+			<span id="post-actions" class="pull-right">
+				<% if(typeof user != 'undefined' && user.hasPerm('createPost')){ %>
+					<a href="/posts/new" class="glyphicon glyphicon-plus"></a>
+				<% } %>
+			</span>
 		</div>
 		<table class="table">
 			<tbody>

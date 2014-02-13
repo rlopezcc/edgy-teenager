@@ -1,63 +1,27 @@
-var qs = require('querystring');
-var posts = require('./models/post');
+var middlewares = require('./middlewares');
+var views = require('./views');
+var ajaxViews = require('./ajax');
 
-var imageMimetypes = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif'];
+module.exports = function (app) {
 
-module.exports = function(app){
+    app.get('/', views.index);
 
-	app.get('/', function(req, res){
-		
-		posts.find({}, function(err, psts){
-			if (err){
-				console.log(err);
-			}else{
-				res.render('index.html', {posts: psts ? psts : ['Still no posts.']});
-			}
-		});
-	
-	});
+    app.get('/posts/new', middlewares.checkPermission('createPost'), views.newPostTemplate);
+    app.post('/posts/new', middlewares.checkPermission('createPost'), views.newPost);
 
-	app.get('/posts/new', function(req, res){
-		res.render('post-new.html', {});
-	});
+    app.get('/posts/:id', views.detailPost);
 
-	app.post('/posts/new', function(req, res){
-		picture = req.files.picture;
-		if(imageMimetypes.indexOf(picture.type) != -1){
-			posts.collection.insert({title: req.body.title, 
-				body: req.body.body, 
-				picture: picture.path.replace('static', '')}, function(err, data){ 
-					res.redirect('/'); 
-				});
-		}
-	});
+    app.get('/posts/:id/delete', views.deletePost);
 
-	app.get('/posts/:id', function(req, res){
-		try{
-			var objectId = new require('mongoose').Types.ObjectId(req.params.id);
+    app.get('/posts/:id/update', views.updatePostTemplate);
+    app.post('/posts/:id/update', views.updatePost);
 
-			var pst = posts.findOne({_id: objectId}, function(err, pst){
-				if (!pst){
-					res.redirect('/404');
-				}else{
-					res.render('post-detail.html', {post: pst ? pst : {}});
-				}
-			});
-		}catch(err){
-			res.redirect('/404');
-		}
-	});
+    app.get('/users/new', middlewares.checkPermission('createUser'), views.createUserTemplate);
+    app.post('/users/new', middlewares.checkPermission('createUser'), views.createUser);
+    app.post('/users/:id/permissions', middlewares.checkPermission('deleteUser'), ajaxViews.setUserPermissions);
+    app.post('/users/:id/delete', middlewares.checkPermission('deleteUser'), ajaxViews.deleteUser);
+    app.get('/users', middlewares.checkPermission('createUser'), views.Users);
 
-	app.get('/posts/:id/delete', function(req, res){
-		var objectId = new require('mongoose').Types.ObjectId(req.params.id);
-		posts.collection.remove({_id: objectId}, function(err, data){
-			if (err){
-				console.log(err);
-			}
-			else{
-				return(data);
-			}
-		});
-		res.redirect('/');
-	});
-}
+    app.get('/login', views.loginTemplate);
+    app.post('/login', ajaxViews.login);
+};

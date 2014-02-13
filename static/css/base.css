@@ -1,8 +1,19 @@
+@font-face{
+	font-family: 'Intro';
+	src: url('/fonts/Intro.otf');
+}
+
+@font-face{
+	font-family: 'Blackout';
+	src: url('/fonts/blackout_midnight-webfont.ttf') format('truetype');
+}
+
 body{
-	background-color: #000;
+	background-color: #333;
 	background-image: url('/img/background-pattern.jpg');
 	background-size: 35%;
 	font-size: 1.2em;
+	font-family: 'DejaVu Sans';
 }
 
 a{
@@ -22,10 +33,21 @@ li {
 	margin-top: 5%;
 }
 
+.index-panel img{
+	width: 100%;
+	height: 100%;
+	display: block;
+	margin: 0 auto; 
+}
+
 .blog-title{
 	margin-top: 5%;
 	color: #EEE;
 	padding-left: 4%;
+}
+
+.blog-title * {
+	font-family: 'Blackout';
 }
 
 .blog-title h1{
@@ -34,7 +56,7 @@ li {
 }
 
 .index-panel .panel{
-	box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+	box-shadow: 0 0 30px rgba(0, 0, 0, .9);
 	border-radius: 0;
 	border-color: #333;
 }
@@ -71,11 +93,61 @@ a.glyphicon{
 	z-index: 999;
 	left: 50%;
 	margin-left: -15%;
-	position: absolute;
+	position: fixed;
 	top: 50px;
 	width: 30%;
+	min-width: 150px;
 }
 
 .btn{
 	margin-left: 5px;
+}
+
+.form-control{
+	border-radius: 1px;
+}
+
+.form-control:focus{
+	border-color: #CCC;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
+}
+
+.form-error{
+	font-size: .9em;
+}
+
+.panel .table .glyphicon{
+	margin-right: 7px;
+	font-size: .9em;
+}
+.panel .table .glyphicon:hover{
+	cursor: pointer;
+}
+
+.permission-panel{
+	display: none;
+}
+
+.spinner{
+	animation:spin 1s linear infinite;
+	-webkit-animation:spin 1s linear infinite;  /* Safari and Chrome */
+}
+
+@keyframes spin {
+	from {transform: rotate(0deg);}
+	to {transform: rotate(360deg);}
+}
+
+@-webkit-keyframes spin{
+	from {-webkit-transform: rotate(0deg);}
+	to {-webkit-transform: rotate(360deg);}
+}
+
+.select2-extra{
+	overflow: visible;
+	height: 0;
+	float: right;
+	z-index: 99;
+	position: relative;
+	top: 9px;
 }

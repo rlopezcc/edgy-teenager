@@ -5,8 +5,19 @@
 		<div class="panel-heading">
 			<strong><%= post.title %></strong>
 			<span class="pull-right">
-				<a id="post-edit" href="/posts/<%= post._id %>/edit" class='glyphicon glyphicon-pencil'></a>
-				<a id="post-delete" data-post-id="<%= post._id %>" class='glyphicon glyphicon-remove'></a>
+
+				<% if(typeof user != 'undefined'){ %>
+			
+					<% if(user.hasPerm('updatePost')){ %>
+						<a id="post-edit" href="/posts/<%= post._id %>/update" class='glyphicon glyphicon-pencil'></a>
+					<% } %>
+			
+					<% if(user.hasPerm('deletePost')){ %>
+						<a id="post-delete" data-post-id="<%= post._id %>" class='glyphicon glyphicon-remove'></a>
+					<% } %>
+			
+				<% } %>
+				
 			</span>
 		</div>
 		<img id="post-picture" src="<%= post.picture %>"></img>
