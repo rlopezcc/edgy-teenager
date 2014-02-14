@@ -1,6 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var models = require('./models');
+var middlewares = require('./middlewares');
 var app = express();
 
 app.configure(function () {
@@ -12,7 +13,6 @@ app.configure(function () {
     app.use(express.bodyParser({uploadDir: './static/img/post-pics'}));
     app.use(express.multipart());
     app.use(express.static(__dirname + '/static'));
-
     app.use(function (req, res, next) {
         // Make user accessible from template.
         if (req.session.userId != null) {
@@ -25,7 +25,7 @@ app.configure(function () {
         }
         next();
     });
-
+    app.use(middlewares.addConfig);
     app.router = require('./routes')(app);
     app.engine('html', require('ejs').renderFile);
 

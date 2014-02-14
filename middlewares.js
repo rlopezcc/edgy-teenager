@@ -1,4 +1,5 @@
 var models = require('./models');
+var config = require('./edgy.json');
 
 module.exports = {
 
@@ -12,5 +13,11 @@ module.exports = {
                 }
             });
         }
+    },
+
+    addConfig: function(req, res, next){
+        res.locals.blogHeading = config.blogHeading;
+        res.locals.blogSubHeading = config.blogSubHeading;
+        next();
     }
 };
