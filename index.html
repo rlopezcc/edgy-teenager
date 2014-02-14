@@ -1,1 +1,72 @@
-Yepp
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="static/css/base.css">
+		<title>Edgy Teenager</title>
+	</head>
+	<body onload="prettyPrint(); adjustHeightInParent()">
+		<div class="row">			
+			<div class="blog-title col-sm-4 col-sm-offset-4 text-center">
+				<a href="/"><h1>Edgy Teenager</h1></a>
+				<h5>Simple Blog.</h5>
+			</div>
+        </div>
+        <div class="row">
+			<div class="index-panel col-sm-10 col-sm-offset-1">
+				<div class="panel panel-default">
+				    <div class="panel-body">
+                        <h3>What is this 5#!+?</u></h3>
+                        <p>
+                            This is my first experiment with node.js.<br>
+                             As the title says, it's just a blog, it lets you create/edit/delete posts, and do basic user management. As shown in the <a href="#screenshots">screenshots</a>.
+                        </p>
+
+                        <div id="screenshots">
+                            <h3>Screenshots</h3>
+                            <h4>Creating/editing.</h4>
+                            <img class="smallpic" src="http://dl.dropboxusercontent.com/u/15695210/edgy-teenager/create-edit.png"></img>
+                            <br>
+                            <h4>Reading.</h4>
+                            <img src="http://dl.dropboxusercontent.com/u/15695210/edgy-teenager/view.png"></img>
+                            <br>
+                            <h4>Deleting :(</h4>
+                            <img class="smallpic" src="http://dl.dropboxusercontent.com/u/15695210/edgy-teenager/delete.png"></img>
+                            <br>
+                            <h4>Managing users</h4>
+                            <img class="smallpic" src="http://dl.dropboxusercontent.com/u/15695210/edgy-teenager/users.png"></img>
+                        </div>
+                        <br>
+                        <h3>Configuration</h3>
+                        <p>
+                            There's this file called edgy.json, by now you can set the name of the blog, and the subtitle.
+                            <div class="ugly-code"> 
+{
+    "blogHeading": "Edgy Teenager",
+    "blogSubHeading": "Simple blog."
+}
+                            </div>
+                        </p>
+                        <h3>Dependencies</h3>
+                        <p>
+                         I tried to keep it light on dependencies, but this is what I needed finally:<br>
+                            <ul>
+                                <li>express.</li>
+                                <li>ejs.</li>
+                                <li>bson.</li>
+                                <li>mongoose.</li>
+                                <li>crypto.</li>
+                                <li>node-uuid.</li>
+                            </ul>
+                        </p>
+
+				    </div>
+				</div>
+			</div>
+		</div>	
+	</body>
+</html>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
+<script type="text/javascript" src="/js/base.js"></script>
+
