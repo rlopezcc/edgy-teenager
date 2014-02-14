@@ -14,4 +14,4 @@ Run the app:
 
 `nodejs app.js [port]` 
 
-
+[Check the github page to see screenshots.]("http://rlopezcc.github.io/edgy-teenager/")
