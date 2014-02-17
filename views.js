@@ -8,7 +8,7 @@ exports.loginTemplate = function (req, res) {
 };
 
 exports.index = function (req, res) {
-    models.Post.find({}, function(err, psts){
+    models.Post.find({}, function(err, psts){ 
         if (err){
             console.log(err);
         }else{
